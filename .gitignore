@@ -1,0 +1,4 @@
+crypt.key
+
+*.egg-info
+*.pyc
