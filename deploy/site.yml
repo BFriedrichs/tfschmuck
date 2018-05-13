@@ -1,17 +1,22 @@
 - hosts: webserver
   become: true
+  remote_user: ubuntu
 
   tasks:
   - name: copy config file
-    block:
-      - template:
-          src: templates/config.yml.jinja
-          dest: /etc/tfschmuck.yml
+    template:
+      src: templates/config.yml.jinja
+      dest: /etc/tfschmuck.yml
 
   - name: pull image
     docker_image:
       name: bfriedrichs/tfschmuck
       force: true
+
+  - name: stop container
+    docker_container:
+      name: tfschmuck
+      state: absent
 
   - name: start container
     docker_container:
@@ -22,5 +27,5 @@
         LETSENCRYPT_HOST: tfschmuck.bjoern-friedrichs.de
         VIRTUAL_HOST: tfschmuck.bjoern-friedrichs.de
 
-  - name: Copy config
+  - name: copy config into container
     shell: docker cp /etc/tfschmuck.yml tfschmuck:/etc/tfschmuck.yml

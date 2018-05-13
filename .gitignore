@@ -5,3 +5,5 @@ crypt.key
 
 build
 dist
+
+*.retry
