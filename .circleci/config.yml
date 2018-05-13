@@ -50,7 +50,7 @@ workflows:
   build_and_push:
     jobs:
       - build
-      - test:
+      - push:
           requires:
             - build
           filters:
