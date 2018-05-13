@@ -5,7 +5,7 @@
 An update to tanja-friedrichs.de
 
 ---
-## TODO
 
-* Dockerfile
+### Development
 
+docker run -t --rm -v $(pwd):/app -p 8000:80 bfriedrichs/tfschmuck

@@ -1,4 +1,15 @@
 from setuptools import setup, find_packages
+import os
+
+
+def package_files(directory):
+    paths = []
+    for (path, directories, filenames) in os.walk(directory):
+        add_path = (path, [])
+        for filename in filenames:
+            add_path[1].append(os.path.join(path, filename))
+        paths.append(add_path)
+    return paths
 
 setup(name='tfschmuck',
       version='0.1',
@@ -13,4 +24,8 @@ setup(name='tfschmuck',
               'tfschmuck=tfschmuck.server.cli:cli'
           ]
       },
+      package_data={
+        '': ['*.yml'],
+      },
+      data_files=package_files('tfschmuck/client'),
       zip_safe=False)

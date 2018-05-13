@@ -1,0 +1,18 @@
+- hosts: webserver
+  become: true
+
+  tasks:
+  - name: copy config file
+    block:
+      - template:
+          src: config.yml.jinja
+          dest: /etc/tfschmuck.yml
+
+  - name: start container
+    docker:
+      name: tfschmuck
+      image: bfriedrichs/tfschmuck
+      env:
+        LETSENCRYPT_EMAIL: bjoern@friedrichs1.de
+        LETSENCRYPT_HOST: tfschmuck.bjoern-friedrichs.de
+        VIRTUAL_HOST: tfschmuck.bjoern-friedrichs.de

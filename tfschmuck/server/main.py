@@ -25,7 +25,7 @@ def register_routes(app):
 
 def create_app():
     app = web.Application()
-    settings = yacm.read_file(BASE_PATH + '/config.yml')
+    settings = yacm.read_configs('tfschmuck.server')
 
     template_path = os.path.join(MODULE_PATH, 'client', 'templates')
     jinja2_loader = jinja2.FileSystemLoader(template_path)

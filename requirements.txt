@@ -4,3 +4,6 @@ pytest-cov==2.5.1
 pytest==3.4.0
 aiohttp-session[secure]==2.2.0
 yacm==0.1.0
+Jinja2==2.10
+aiohttp-jinja2==1.0.0
+click==6.7

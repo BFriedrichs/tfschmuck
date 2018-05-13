@@ -6,8 +6,6 @@ import traceback
 import asyncio
 from aiohttp import web
 
-from watchgod import awatch
-
 
 class colors:
     OKGREEN = '\033[92m'
@@ -31,6 +29,8 @@ def cli_print(*args, **kwargs):
 
 
 async def reload_server(loop, port):
+    # lazy import watchgod
+    from watchgod import awatch
     MODULE_PATH = os.path.dirname(__file__)
     app = try_server()
 
@@ -70,8 +70,12 @@ def try_server():
 
 
 @click.command()
-def serve():
-    pass
+@click.option('--port', default=8000, help='Specify the port.')
+def serve(port):
+    from tfschmuck import server
+    app = server.main.create_app()
+
+    web.run_app(app, port=port)
 
 
 @click.group()
