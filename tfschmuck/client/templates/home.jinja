@@ -14,11 +14,27 @@
     </div>
 
     <div class="see-more">
-      See more <i class="icon-arrow-down"></i>
+      <i class="icon-arrow-down"></i> See more
     </div>
   </div>
 
   <div class="news">
-    Articles
+    <hr />
+    <div class="headline">News</div>
+    <div class="articles">
+      {% for i in range(10) %}
+        <div class="article">
+          <div class="img-container">
+            <img src="/static/assets/th_cloud_01.jpg">
+          </div>
+          <div class="article-title">30 Jahre Galerie Spandow</div>
+          <div class="article-date">Sept - 2017</div>
+          <div class="article-text">
+            <hr class="article-spacer" />
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices sodales condimentum. Proin consectetur ipsum nec lectus aliquam, nec suscipit ex interdum. Sed tristique rhoncus lacinia. Phasellus eu leo et massa fermentum tempus in non tortor. In erat nibh, ornare et ipsum quis, scelerisque ullamcorper est. Cras rhoncus ipsum vel maximus dictum.
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}

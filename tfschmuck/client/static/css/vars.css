@@ -1,7 +1,7 @@
 :root {
-  --content-padding: 20px;
+  --content-padding: 32px;
   --nav-height: 75px;
   --screen-no-nav: calc(100vh - var(--nav-height));
 
-  --text-color: #3e3e3e;
+  --text-color: #2e2e2e;
 }

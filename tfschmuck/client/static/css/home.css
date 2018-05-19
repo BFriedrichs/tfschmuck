@@ -1,5 +1,5 @@
 .content {
-  grid-template-rows: var(--screen-no-nav) var(--screen-no-nav);
+  grid-template-rows: var(--screen-no-nav) auto;
   grid-template-columns: 100%;
   grid-template-areas:
     "scroller"
@@ -18,7 +18,7 @@
     "top top top top top"
     "overlay-text overlay-text right right right"
     "spacer spacer spacer spacer spacer"
-    "more-left more-left more-right more-right more"
+    "more more-left more-left more-right more-right"
 }
 
 .scroller > img {
@@ -26,10 +26,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.news {
-  grid-area: news;
 }
 
 .overlay-text {
@@ -42,20 +38,94 @@
 }
 
 .overlay-title {
-  font-size: 21px;
+  font-size: 1.4em;
 }
 
 .see-more {
   grid-area: more;
   background: #fff;
-  font-size: 18px;
+  font-size: 1.1em;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .see-more i {
-  margin-left: 5px;
+  margin-right: 5px;
   margin-top: 1px;
+}
+
+.news {
+  grid-area: news;
+}
+
+.headline {
+  font-size: 1.6em;
+  padding: var(--content-padding) 0;
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-gap: calc(var(--content-padding) * 1.5);
+}
+
+.article {
+  display: grid;
+  grid-template-rows: 128px auto 8px auto 32px auto auto;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.img-container {
+  --img-zoom: 1.3;
+  grid-area: 1 / 1 / 7 / 4;
+
+  overflow: hidden;
+}
+
+.img-container > img {
+  transition: transform 2s ease-in-out;
+  transform: scale(1, 1);
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-container > img:hover {
+  transform: scale(var(--img-zoom), var(--img-zoom));
+}
+
+.article-title {
+  font-size: 1.3em;
+  grid-area: 2 / 1 / 3 / 3;
+  background: #fff;
+  padding: 8px 0;
+
+  pointer-events: none;
+  z-index: 100;
+}
+
+.article-date {
+  grid-area: 4 / 1;
+  background: #fff;
+  padding: 4px 0;
+
+  pointer-events: none;
+  z-index: 100;
+}
+
+.article-spacer {
+  margin: 16px 0 24px 0;
+}
+
+.article-text {
+  grid-area: 7 / 1 / -1 / -1;
+  padding-top: 16px;
+  text-align: justify;
+
+  font-family: 'Lato';
+  font-weight: 300;
 }
