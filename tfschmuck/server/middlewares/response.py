@@ -18,6 +18,6 @@ def middleware():
                 template, request, response)
             return rendered
 
-        return web.Response()
+        return response
 
     return factory

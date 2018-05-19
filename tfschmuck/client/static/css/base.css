@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'Nimbus Sans';
+  src: url('/static/fonts/NimbusSans/NimbusSans.eot');
+  src: url('/static/fonts/NimbusSans/NimbusSans.eot?#iefix') format('embedded-opentype'),
+       url('/static/fonts/NimbusSans/NimbusSans.woff') format('woff'),
+       url('/static/fonts/NimbusSans/NimbusSans.ttf') format('truetype'),
+       url('/static/fonts/NimbusSans/NimbusSans.svg#nimbus_sans_lregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nimbus Sans';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+}
+
+.layout-container {
+  display: grid;
+  grid-template-rows: var(--nav-height) auto;
+  grid-template-columns: 20px auto 20px;
+  grid-template-areas:
+    "left header right"
+    "left content right"
+}
+
+.header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 50%;
+  grid-template-areas:
+    "logo nav"
+}
+
+.logo {
+  font-size: 25px;
+  align-self: center;
+}
+
+.main-nav {
+  align-items: center;
+  justify-self: end;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 32px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+
+  font-size: 18px;
+}
+
+.content {
+  display: grid;
+  grid-area: content;
+}

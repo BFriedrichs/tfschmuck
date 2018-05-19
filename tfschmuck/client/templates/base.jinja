@@ -2,8 +2,28 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/static/css/icons.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/vars.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+  {% block includes %}{% endblock %}
 </head>
 <body>
-  {% block content %}{% endblock %}
+  <div class="layout-container">
+    <header class="header">
+      <div class="logo">
+        Tanja Friedrichs Schmuck
+      </div>
+      <nav class="main-nav">
+        <a href="/jewellery/">Schmuck</a>
+        <a href="/jewellery/">Galerien</a>
+        <a href="/jewellery/">Presse</a>
+        <a href="/jewellery/">12 Jahre</a>
+        <a href="/jewellery/">de</a>
+      </nav>
+    </header>
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
 </body>
 </html>

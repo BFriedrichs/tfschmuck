@@ -22,6 +22,9 @@ def register_routes(app):
     home_handler = home.Home()
     app.router.add_route('GET', '/', home_handler.get)
 
+    app.router.add_static(
+        '/static/', path=os.path.join(MODULE_PATH, 'client', 'static'))
+
 
 def create_app():
     app = web.Application()

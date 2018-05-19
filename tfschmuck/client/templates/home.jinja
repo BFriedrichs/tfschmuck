@@ -1,5 +1,24 @@
 {% extends 'base.jinja' %}
 
+{% block includes %}
+  <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+{% endblock %}
+
 {% block content %}
-  HOME
+  <div class="scroller">
+    <img src="/static/assets/main.png">
+
+    <div class="overlay-text">
+      <div class="overlay-title">LA LOOPE, Reine Zierde 2005–2017</div>
+      <div class="overlay-subtitle">KunstRaum Duisburg</div>
+    </div>
+
+    <div class="see-more">
+      See more <i class="icon-arrow-down"></i>
+    </div>
+  </div>
+
+  <div class="news">
+    Articles
+  </div>
 {% endblock %}

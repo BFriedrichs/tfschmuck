@@ -9,3 +9,8 @@ An update to tanjafriedrichs.de
 ### Development
 
 docker run -t --rm -v $(pwd):/app -p 8000:80 bfriedrichs/tfschmuck
+
+### Deployment
+
+* unlock crypt
+* ansible-playbook -i crypt/inventory -i deploy/hosts deploy/site.yml
