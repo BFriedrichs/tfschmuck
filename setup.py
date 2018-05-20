@@ -11,6 +11,7 @@ def package_files(directory):
         paths.append(add_path)
     return paths
 
+
 setup(name='tfschmuck',
       version='0.1',
       description='A package for the tfschmuck site',
