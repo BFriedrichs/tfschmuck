@@ -40,7 +40,6 @@ hr {
   border: 0;
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .layout-container {
@@ -81,6 +80,11 @@ hr {
   display: grid;
   grid-auto-flow: column;
   grid-gap: 32px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 .main-nav a {
@@ -144,4 +148,14 @@ hr {
 
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .main-nav {
+    display: none;
+  }
 }

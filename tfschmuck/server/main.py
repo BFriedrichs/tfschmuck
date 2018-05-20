@@ -10,8 +10,7 @@ import aiohttp_jinja2
 
 import tfschmuck
 
-from . import middlewares
-from .views import home
+from . import middlewares, views
 
 
 MODULE_PATH = os.path.dirname(tfschmuck.__file__)
@@ -19,9 +18,11 @@ BASE_PATH = os.path.dirname(__file__)
 
 
 def register_routes(app):
-    home_handler = home.Home()
+    home_handler = views.home.Home()
     app.router.add_route('GET', '/', home_handler.get)
 
+    jewellery_handler = views.jewellery.Jewellery()
+    app.router.add_route('GET', '/jewellery', jewellery_handler.get)
     app.router.add_static(
         '/static/', path=os.path.join(MODULE_PATH, 'client', 'static'))
 
